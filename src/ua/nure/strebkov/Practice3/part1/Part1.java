@@ -1,4 +1,4 @@
-package ua.nure.strebkov.Practice3.Part1;
+package ua.nure.strebkov.Practice3.part1;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -17,7 +17,7 @@ public class Part1 {
 
 		
 		while (m.find()) {
-			sb.append(m.group(1)).append(" ====> ").append(m.group(3)).append("@").append(m.group(4)).append("\n");
+			sb.append(m.group(1)).append(" ==> ").append(m.group(3)).append("@").append(m.group(4)).append("\n");
 		}
 
 		return sb.toString();
@@ -41,16 +41,16 @@ public class Part1 {
 		Matcher m = pattern.matcher(input);
 		StringBuilder sb = new StringBuilder();
 
-		ArrayList<String> doms = new ArrayList<String>(2);
+		ArrayList<String> domens = new ArrayList<String>(2);
 		while (m.find()) {
-			if (!doms.contains(m.group(4))) {
-				doms.add(m.group(4));
+			if (!domens.contains(m.group(4))) {
+				domens.add(m.group(4));
 			}
 		}
 
-		for (String s : doms) {
+		for (String s : domens) {
 			m.reset();
-			sb.append(s).append(" ===> ");
+			sb.append(s).append(" ==> ");
 			while (m.find()) {
 				if (s.equals(m.group(4))) {
 					sb.append(m.group(3)).append(", ");
@@ -62,16 +62,21 @@ public class Part1 {
 	}
 	
 	public static String convert4(String input){
+		Random rand = new Random();
         StringBuilder sb = new StringBuilder();
         Pattern pattern = Pattern.compile("(?m)^(.+);(.+);(.+)$");
         Matcher m = pattern.matcher(input);
-        
+
 
         if (m.find()){
             sb.append(m.group()).append(";Password").append("\n");
         }
         while(m.find()){
-            sb.append(m.group()).append(";"+ Math.round(Math.random() * (9999 - 999)+999)).append("\n");
+            sb.append(m.group()).append(";");
+			for (int i = 0; i < 4; i++) {
+				sb.append(rand.nextInt(10));
+			}
+			sb.append("\n");
         }
 
         return sb.toString();
