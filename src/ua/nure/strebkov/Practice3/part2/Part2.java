@@ -8,6 +8,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.Iterator;
 
+/** Read text from part2.txt and
+ * output words with maximum and minimum length.
+ *
+ * @author Strebkov D.
+ */
+
 public class Part2 {
 
     private static int minVal = Integer.MAX_VALUE;
@@ -15,6 +21,11 @@ public class Part2 {
 
     public static final String REGEXP = "([A-z]+)";
 
+
+    /**
+     * Method find min & max value.
+     * @param input
+     */
     public static void foundMinMaxValue(String input) {
 
 
@@ -32,6 +43,11 @@ public class Part2 {
         }
     }
 
+    /**
+     *
+     * @param input
+     * @return toString
+     */
     public static String getMinMax(String input) {
         foundMinMaxValue(input);
         StringBuilder sb = new StringBuilder();
@@ -67,6 +83,10 @@ public class Part2 {
         }
     }
 
+    /**
+     * Main method.
+     * @param args
+     */
     public static void main(String[] args) {
         String input = Util.getInput("part2.txt");
         System.out.println(getMinMax(input));

@@ -9,6 +9,10 @@ import ua.nure.strebkov.Practice3.part5.Part5;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Class demo to all parts of Practice3
+ * @author Strebkov D.
+ */
 public class Demo {
     static final String[] ARG = {""};
 

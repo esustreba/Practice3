@@ -3,6 +3,11 @@ package ua.nure.strebkov.Practice3;
 import java.io.*;
 import java.util.Scanner;
 
+/**
+ * Class read data from file.
+ *
+ * @author Strebkov D.
+ */
 public class Util {
 	public static String getInput(String fileName) {
 		StringBuilder sb = new StringBuilder();

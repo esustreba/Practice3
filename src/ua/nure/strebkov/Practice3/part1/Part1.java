@@ -1,15 +1,30 @@
 package ua.nure.strebkov.Practice3.part1;
 
+import ua.nure.strebkov.Practice3.Util;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ua.nure.strebkov.Practice3.Util;
+/** Read text from part1.txt and
+ * output input data four different way:
+ * 1. convert1(): login ==> email
+ * 2. convert2(): name (email: email)
+ * 3. convert3(): mail domain ==> list of relevant logins
+ * 4. convert4(): login;name;email;random password
+ *
+ * @author Strebkov D.
+ */
+
 
 public class Part1 {
 
 	public static final String REGEXP = "(?m)^(.+);(.+);(.+)@(.+)$";
 
+	/**
+	 *
+	 * @param input
+	 * @return login ==> email
+	 */
 	public static String convert1(String input) {
 		StringBuilder sb = new StringBuilder();
 		Pattern pattern = Pattern.compile(REGEXP);
@@ -22,6 +37,12 @@ public class Part1 {
 
 		return sb.toString();
 	}
+
+	/**
+	 *
+	 * @param input
+	 * @return name (email: email)
+	 */
 
 	public static String convert2(String input) {
 		StringBuilder sb = new StringBuilder();
@@ -36,6 +57,11 @@ public class Part1 {
 		return sb.toString();
 	}
 
+	/**
+	 *
+	 * @param input
+	 * @return mail domain ==> list of relevant logins
+	 */
 	public static String convert3(String input) {
 		Pattern pattern = Pattern.compile(REGEXP);
 		Matcher m = pattern.matcher(input);
@@ -60,7 +86,12 @@ public class Part1 {
 		}
 		return sb.toString();
 	}
-	
+
+	/**
+	 *
+	 * @param input
+	 * @return login;name;email;random password
+	 */
 	public static String convert4(String input){
 		Random rand = new Random();
         StringBuilder sb = new StringBuilder();
@@ -83,6 +114,10 @@ public class Part1 {
 
     }
 
+	/**
+	 * Method main.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		String input = Util.getInput("part1.txt");
 
